@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特典まとめ｜みな｜AI×SNSで在宅収入を叶える主婦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#ff8a75',
+          brand: {
+            light: '#FAF0EC',
+            peach: '#FFF5F0',
+            coral: '#E89A91',
+            deep: '#DE7A70',
+            accent: '#D4AF37',
+            dark: '#4A3E3D',
+            line: '#06C755',
+          }
+        },
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'sans-serif'],
+          serif: ['"Shippori Mincho"', 'serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Noto Sans JP', sans-serif; background-color: #FAF0EC; }
+  .font-serif { font-family: 'Shippori Mincho', serif; }
+  .card-hidden { display: none !important; }
+</style>
+</head>
+<body class="text-brand-dark">
+
+<!-- ヘッダー -->
+<header class="bg-gradient-to-b from-brand-peach to-brand-light pt-10 pb-8 px-5">
+  <div class="max-w-xl mx-auto text-center">
+    <span class="inline-block bg-white/70 text-brand-deep text-xs font-bold tracking-wider px-4 py-1.5 rounded-full mb-4 shadow-sm">🎁 特典まとめページ</span>
+    <p class="font-serif text-brand-deep text-sm mb-1">今までの特典、全部ここに。</p>
+    <h1 class="font-serif text-2xl sm:text-3xl font-bold leading-relaxed mb-5">
+      欲しい特典が、<br class="sm:hidden">すぐ見つかる。
+    </h1>
+    <div class="flex items-center justify-center gap-3">
+      <img src="assets/mina-avatar.png" alt="みな" class="w-11 h-11 rounded-full object-cover border-2 border-white shadow">
+      <div class="text-left">
+        <p class="text-sm font-bold">みな</p>
+        <p class="text-xs text-brand-dark/60">@mina_ai_fukugyo</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 検索ボックス -->
+<div class="sticky top-0 z-20 bg-brand-light/95 backdrop-blur border-b border-brand-coral/20 px-5 py-3">
+  <div class="max-w-xl mx-auto">
+    <div class="relative">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-coral" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 10-10.6-10.6 7.5 7.5 0 0010.6 10.6z" />
+      </svg>
+      <input id="searchBox" type="text" inputmode="search" placeholder="キーワードで探す（例：note、パズル、翻訳…）"
+        class="w-full bg-white rounded-full pl-11 pr-10 py-3 text-sm shadow-sm border border-brand-coral/20 focus:outline-none focus:ring-2 focus:ring-brand-deep/40 placeholder:text-brand-dark/40">
+      <button id="clearBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-dark/10 text-brand-dark/60 text-xs">✕</button>
+    </div>
+    <p id="resultCount" class="text-xs text-brand-dark/50 mt-2 pl-1"></p>
+  </div>
+</div>
+
+<!-- カード一覧 -->
+<main class="max-w-xl mx-auto px-5 py-6">
+  <div id="cardList" class="flex flex-col gap-4"></div>
+  <p id="noResult" class="hidden text-center text-sm text-brand-dark/50 py-16">
+    😥 該当する特典が見つかりませんでした。<br>別のキーワードで試してみてね。
+  </p>
+</main>
+
+<!-- オプチャ誘導バナー -->
+<div class="max-w-xl mx-auto px-5 pb-4">
+  <a href="https://line.me/ti/g2/-iZ9LBnhq6PqtsV0tf52ID7_K5QNRmfn5Hqesg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener" class="block rounded-2xl overflow-hidden shadow-md border border-brand-coral/20">
+    <img src="assets/line-cta-banner.png" alt="AI×新手法オプチャに参加する" class="w-full">
+  </a>
+</div>
+
+<!-- フッター -->
+<footer class="bg-brand-dark text-white/70 text-xs px-5 py-8 mt-4">
+  <div class="max-w-xl mx-auto text-center space-y-2">
+    <p>© みな｜AI×SNSで在宅収入を叶える主婦</p>
+    <p class="text-white/40">本ページは各特典への案内をまとめたものです。効果・収益を保証するものではありません。</p>
+  </div>
+</footer>
+
+<script>
+  const items = [
+    { img: "assets/19-jp-photo-sticker-guide.png", title: "日本の日常写真で稼ぐ📷✨AIデジタルステッカー販売ガイド", desc: "スマホの中の日常写真をAIでデジタルステッカーに変えて海外販売する方法。", url: "https://mimatsu037.github.io/jp-photo-sticker-guide/" },
+    { img: "assets/20-digital-paper-guide.png", title: "柄ひとつで長く売れる📄✨AIデジタルペーパー販売ガイド", desc: "AIで作った柄をデジタルペーパーとして海外に販売する方法。", url: "https://mimatsu037.github.io/digital-paper-guide/" },
+    { img: "assets/01-ai-puzzle.png", title: "AIパズル販売スタートガイド", desc: "在庫ゼロ・発送ゼロで始めるAIパズル販売。コピペOKプロンプト付き。", url: "https://mimatsu037.github.io/ai-puzzle-openchat/" },
+    { img: "assets/11-ai-nurie-openchat.png", title: "AIぬりえ本 販売ガイド", desc: "在庫リスク0でAmazonに並べるAIぬりえ本の作り方。コピペOKプロンプト付き。", url: "https://mimatsu037.github.io/ai-nurie-openchat/" },
+    { img: "assets/14-ai-ehon-openchat.png", title: "AI絵本のはじめ方ガイド", desc: "AIでオリジナル絵本を作って販売する、はじめの一歩。コピペOKプロンプト付き。", url: "https://mimatsu037.github.io/ai-ehon-openchat/" },
+    { img: "assets/02-ai-fukugyo3sen.png", title: "知る人ぞ知る…AIでできる穴場の在宅副業3選", desc: "まだ知られていない、AIを使った在宅副業のアイデアを3つ紹介。", url: "https://mimatsu037.github.io/ai-fukugyo3sen-openchat/" },
+    { img: "assets/13-ai-ranking-openchat.png", title: "複業で使うべきAIツールランキング", desc: "実際に使って良かったAIツールを、用途別にランキング形式で紹介。", url: "https://mimatsu037.github.io/ai-ranking-openchat/" },
+    { img: "assets/12-ai-daihonsakusei-openchat.png", title: "AI×台本作成の手順書【クラウドワークス】", desc: "クラウドワークスで受注できる、AIを使った台本作成の実践手順。", url: "https://mimatsu037.github.io/ai-daihonsakusei-openchat/" },
+    { img: "assets/03-substack-note.png", title: "noteのネタが尽きないSubstack活用ガイド", desc: "海外プラットフォームSubstackを使って、noteのネタ切れを解消する方法。コピペOKプロンプト付き。", url: "https://mimatsu037.github.io/substack-note-openchat/" },
+    { img: "assets/07-instagram-note.png", title: "ChatGPT×Instagram×note 収益化完全プロンプト5選", desc: "InstagramとnoteをChatGPTで連携させる収益化プロンプトをまとめて紹介。", url: "https://mimatsu037.github.io/instagram-note-openchat/" },
+    { img: "assets/09-claude-note.png", title: "Claude×note記事作成プロンプト＋note必須設定5選", desc: "Claudeでnote記事を効率よく書くプロンプトと、必須の初期設定。", url: "https://mimatsu037.github.io/claude-note-openchat/" },
+    { img: "assets/15-claude-rakuten-openchat.png", title: "Claude×楽天アフィリエイト 自動化セットアップガイド", desc: "Claudeを使って楽天アフィリエイト記事の作成を自動化するセットアップ手順。", url: "https://mimatsu037.github.io/claude-rakuten-openchat/" },
+    { img: "assets/08-googlemap.png", title: "AI×Googleマップで叶える「未経験からのWeb制作」スタートマニュアル", desc: "未経験からでも始められる、AI×GoogleマップのWeb制作案件の入り方。", url: "https://mimatsu037.github.io/googlemap-openchat/" },
+    { img: "assets/10-ai-pinterest-openchat.png", title: "AI×Pinterest入門ガイド", desc: "AIがあなたの代わりに働く仕組みの作り方。初心者ママでもできるPinterest活用法。", url: "https://mimatsu037.github.io/ai-pinterest-openchat/" },
+    { img: "assets/05-japanese-work.png", title: "日本語を整えるだけ。おうち時間を収入に変える新しい働き方", desc: "特別なスキル不要、日本語を整えるだけでできる新しい在宅ワーク。", url: "https://mimatsu037.github.io/japanese-work-openchat/" },
+    { img: "assets/06-japanese.png", title: "日本語×AIで時給UPガイド", desc: "日本語の強みとAIを掛け合わせて、時給を上げる働き方ガイド。", url: "https://mimatsu037.github.io/japanese-openchat/" },
+    { img: "assets/16-fiverr-honyaku-openchat.png", title: "Fiverr×AI翻訳ワーク", desc: "寝かしつけ後の30分を収入に変える、Fiverrを使ったAI翻訳ワークの始め方。", url: "https://mimatsu037.github.io/fiverr-honyaku-openchat/" },
+    { img: "assets/04-line-stamp.png", title: "LINEスタンプ販売スタートガイド", desc: "AIを使ってLINEスタンプを作り、販売するまでの流れをまとめたガイド。", url: "https://mimatsu037.github.io/line-stamp-openchat/" },
+    { img: "assets/18-line-emoji-openchat.png", title: "チャッピーでLINE絵文字販売スタートガイド", desc: "ChatGPT（チャッピー）を使ってLINE絵文字を作り、販売するスタートガイド。", url: "https://mimatsu037.github.io/line-emoji-openchat/" },
+    { img: "assets/17-japanese-poster-openchat.png", title: "日本風ポスター販売スタートガイド", desc: "AIで日本風のアートポスターを作り、海外向けに販売するガイド。", url: "https://mimatsu037.github.io/japanese-poster-openchat/" },
+  ];
+
+  const listEl = document.getElementById('cardList');
+  const noResultEl = document.getElementById('noResult');
+  const countEl = document.getElementById('resultCount');
+  const searchBox = document.getElementById('searchBox');
+  const clearBtn = document.getElementById('clearBtn');
+
+  function renderCards() {
+    listEl.innerHTML = items.map((item, i) => `
+      <a href="${item.url}" target="_blank" rel="noopener" data-idx="${i}"
+        class="card-item flex gap-4 bg-white rounded-2xl p-3 shadow-sm border border-brand-coral/10 hover:shadow-md hover:border-brand-coral/30 transition">
+        <img src="${item.img}" alt="" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0 bg-brand-peach">
+        <div class="flex-1 min-w-0 flex flex-col justify-center">
+          <p class="font-bold text-sm leading-snug mb-1">${item.title}</p>
+          <p class="text-xs text-brand-dark/60 leading-snug">${item.desc}</p>
+        </div>
+        <div class="flex items-center flex-shrink-0">
+          <span class="text-brand-deep text-lg">›</span>
+        </div>
+      </a>
+    `).join('');
+    updateCount(items.length);
+  }
+
+  function updateCount(n) {
+    countEl.textContent = n + '件の特典';
+  }
+
+  function normalize(str) {
+    return str.toLowerCase();
+  }
+
+  function filterCards() {
+    const q = normalize(searchBox.value.trim());
+    clearBtn.classList.toggle('hidden', q.length === 0);
+    let visible = 0;
+    document.querySelectorAll('.card-item').forEach(el => {
+      const item = items[el.dataset.idx];
+      const hay = normalize(item.title + ' ' + item.desc);
+      const match = q === '' || hay.includes(q);
+      el.classList.toggle('card-hidden', !match);
+      if (match) visible++;
+    });
+    updateCount(visible);
+    noResultEl.classList.toggle('hidden', visible !== 0);
+  }
+
+  function clearSearch() {
+    searchBox.value = '';
+    filterCards();
+    searchBox.focus();
+  }
+
+  searchBox.addEventListener('input', filterCards);
+  renderCards();
+</script>
+
+</body>
+</html>
